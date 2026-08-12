@@ -36,7 +36,7 @@ On your robot, from a fresh copy of your folder in `~/stretch_user/user_tools/`:
 ## Submitting your tool
 
 1. Fork this repository and create a branch for your tool (e.g. `feature/add-<tool_name>`). One tool per branch and per pull request.
-2. Add your tool folder at the repository root and add your tool's row to the gallery table in the root README.
+2. Add your tool folder at the repository root and add your tool's row to the gallery table in the root README, including a photo of your tool placed in `assets/` (e.g. `assets/<tool_name>.jpeg`).
 3. Open a pull request containing all the details a reviewer needs to understand your tool **before** testing it:
    - What the tool is and what it does, with photos (or a short video link)
    - Hardware required to reproduce it (wrist version, servos and their IDs, printed parts, BOM)
