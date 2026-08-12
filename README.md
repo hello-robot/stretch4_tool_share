@@ -14,23 +14,55 @@ Community-shared end-of-arm (EOA) tools for the Stretch 4 mobile manipulator fro
 
 ## Installing a shared tool
 
-Copy the tool's folder into `~/stretch_user/user_tools/` on your robot, then register and activate it:
+1. Clone this repository onto your robot:
 
-```bash
-git clone https://github.com/hello-bharadwaj/stretch4_tool_share.git
-cp -r stretch4_tool_share/<tool_name> ~/stretch_user/user_tools/
-stretch_add_user_tool <tool_name>
-stretch_configure_tool
-stretch_body_server --restart
-```
+   ```bash
+   git clone https://github.com/hello-bharadwaj/stretch4_tool_share.git
+   ```
+
+2. Copy the tool's folder into `~/stretch_user/user_tools/`:
+
+   ```bash
+   cp -r stretch4_tool_share/<tool_name> ~/stretch_user/user_tools/
+   ```
+
+3. Register the tool:
+
+   ```bash
+   stretch_add_user_tool <tool_name>
+   ```
+
+4. Activate it by selecting it from the tool list:
+
+   ```bash
+   stretch_configure_tool
+   ```
+
+5. Restart the body server:
+
+   ```bash
+   stretch_body_server --restart
+   ```
 
 Verify the installation:
 
-```bash
-stretch_add_user_tool <tool_name> --check
-stretch_gripper_jog
-stretch_collision_viz
-```
+1. Confirm all validation checks pass:
+
+   ```bash
+   stretch_add_user_tool <tool_name> --check
+   ```
+
+2. Jog the tool:
+
+   ```bash
+   stretch_gripper_jog
+   ```
+
+3. Check the tool appears and moves in the collision visualizer:
+
+   ```bash
+   stretch_collision_viz
+   ```
 
 Each tool's README may add tool-specific steps (bill of materials, servo configuration, homing caveats) — read it before installing.
 

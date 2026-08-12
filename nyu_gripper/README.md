@@ -17,22 +17,49 @@ Project page: https://nyu-gripper.pages.dev
 
 ## Installation
 
-On your robot:
+1. Copy the tool folder into `~/stretch_user/user_tools/` on your robot:
 
-```bash
-cp -r stretch4_tool_share/nyu_gripper ~/stretch_user/user_tools/
-stretch_add_user_tool nyu_gripper
-stretch_configure_tool          # select nyu_gripper
-stretch_body_server --restart
-```
+   ```bash
+   cp -r stretch4_tool_share/nyu_gripper ~/stretch_user/user_tools/
+   ```
 
-Verify with:
+2. Register the tool:
 
-```bash
-stretch_add_user_tool nyu_gripper --check
-stretch_gripper_jog             # 'x' / 'y' to open / close
-stretch_collision_viz
-```
+   ```bash
+   stretch_add_user_tool nyu_gripper
+   ```
+
+3. Activate it by selecting `nyu_gripper` from the tool list:
+
+   ```bash
+   stretch_configure_tool
+   ```
+
+4. Restart the body server:
+
+   ```bash
+   stretch_body_server --restart
+   ```
+
+Verify the installation:
+
+1. Confirm all validation checks pass:
+
+   ```bash
+   stretch_add_user_tool nyu_gripper --check
+   ```
+
+2. Jog the gripper (`x` / `y` to open / close):
+
+   ```bash
+   stretch_gripper_jog
+   ```
+
+3. Check the gripper appears and moves in the collision visualizer:
+
+   ```bash
+   stretch_collision_viz
+   ```
 
 ## Homing
 
