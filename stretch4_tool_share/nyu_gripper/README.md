@@ -1,7 +1,7 @@
 # NYU Gripper
 
 <p align="center">
-  <img src="../assets/nyu_gripper.jpg" width="500"/>
+  <img src="../../assets/nyu_gripper.jpg" width="500"/>
 </p>
 
 A tendon-driven parallel gripper for Stretch 4, designed at NYU. A single Feetech smart servo winds a Kevlar tendon to close the two fingers; a return spring opens them. Gripper position is commanded as a unitless percentage: `0` = fully closed, `100` = fully open.
@@ -39,6 +39,7 @@ Project page: https://nyu-gripper.pages.dev
 
    ```bash
    stretch_body_server --restart
+   stretch_dex_wrist_home
    ```
 
 Verify the installation:
