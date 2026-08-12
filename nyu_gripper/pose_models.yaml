@@ -1,0 +1,14 @@
+- name: stow
+  timestamp: 0.0
+  joints:
+    wrist_pitch: {position: 0.0, velocity: 0.0, effort: 0.0}
+    wrist_roll: {position: 0.0, velocity: 0.0, effort: 0.0}
+    wrist_yaw: {position: 3.14, velocity: 0.0, effort: 0.0}
+    nyu_gripper: {position: 0.0, velocity: 0.0, effort: 0.0}
+- name: zero
+  timestamp: 0.0
+  joints:
+    wrist_pitch: {position: 0.0, velocity: 0.0, effort: 0.0}
+    wrist_roll: {position: 0.0, velocity: 0.0, effort: 0.0}
+    wrist_yaw: {position: 0.0, velocity: 0.0, effort: 0.0}
+    nyu_gripper: {position: 0.0, velocity: 0.0, effort: 0.0}

@@ -1,0 +1,134 @@
+py_class_name: NyuGripper
+py_module_name: end_of_arm
+client_class_name: NyuGripper_Client
+client_module_name: client
+use_group_sync_read: 0
+use_group_sync_write: 0
+retry_on_comm_failure: 1
+baud: 1000000
+i_feedforward_payload: 0.2
+wrist: eoaw_dw4
+tool: nyu_gripper
+stow:
+  arm: 0.0
+  lift: 0.15
+  wrist_pitch: 0.0
+  wrist_roll: 0.0
+  wrist_yaw: 3.14
+  nyu_gripper: 0
+collision_mgmt:
+  k_brake_distance:
+    wrist_pitch: 0.25
+    wrist_yaw: 0.25
+    wrist_roll: 0.25
+  collision_pairs:
+    wrist_pitch_link_TO_base_link:
+      link_pts: wrist_pitch_link
+      link_cube: base_link
+      detect_as: pts
+    wrist_yaw_bottom_link_TO_base_link:
+      link_pts: wrist_yaw_bottom_link
+      link_cube: base_link
+      detect_as: pts
+  joints:
+    lift:
+    - motion_dir: neg
+      collision_pair: wrist_pitch_link_TO_base_link
+    - motion_dir: neg
+      collision_pair: wrist_yaw_bottom_link_TO_base_link
+devices:
+  wrist_pitch:
+    py_class_name: WristPitch
+    py_module_name: stretch4_body.subsystem.end_of_arm.wrist_pitch
+    device_params: SE4_wrist_pitch_DW4
+  wrist_roll:
+    py_class_name: WristRoll
+    py_module_name: stretch4_body.subsystem.end_of_arm.wrist_roll
+    device_params: SE4_wrist_roll_DW4
+  wrist_yaw:
+    py_class_name: WristYaw
+    py_module_name: stretch4_body.subsystem.end_of_arm.wrist_yaw
+    device_params: SE4_wrist_yaw_DW4
+  nyu_gripper:
+    py_class_name: NyuGripper
+    py_module_name: tool
+    device_params: null
+    gripper_conversion:
+      finger_length_m: 0.11205
+      aperture_open_m: 0.145
+      aperture_closed_m: 0.0
+    eeprom_cfg:
+      temperature_limit: 72
+      max_voltage_limit: 29
+      min_voltage_limit: 11
+      pid:
+      - 32
+      - 32
+      - 0
+      return_delay_time: 0
+      angular_resolution: 1.0
+      phase: 61
+      max_pos_limit: 0
+      min_pos_limit: 0
+      max_load_limit_pct: 20.0
+      overload_safe: 15.0
+      overload_time_ms: 1000
+      overload_thresh: 20.0
+      overcurrent: 150
+      overcurrent_time_ms: 200
+      protection_torque: 20
+      overload_protection_time: 200
+      enable_protection_overload: 1
+      enable_protection_current: 1
+      enable_protection_temp: 1
+      enable_protection_sensor: 0
+      enable_protection_voltage: 0
+    motion:
+      default:
+        accel: 6.0
+        vel: 6.0
+      fast:
+        accel: 6.0
+        vel: 6.0
+      max:
+        accel: 6.0
+        vel: 6.0
+      slow:
+        accel: 4.0
+        vel: 1.0
+      vel_brakezone_factor: 1
+      vel_is_moving_thresh: 0.01
+    id: 25
+    set_safe_velocity: 1
+    req_calibration: 1
+    gr: 1.0
+    usb_name: /dev/hello-feetech-wrist
+    retry_on_comm_failure: 1
+    baud: 1000000
+    range_pad_deg:
+    - 0.0
+    - 10.0
+    range_deg:
+    - 0
+    - 187
+    homing_offset_bias_t: 0
+    homing_to_neg_limit: 1
+    homing_pwm: -80
+    homing_stall_pos_window_t: 60
+    flip_encoder_polarity: 1
+    stall_backoff: 0.017
+    stall_max_effort: 20.0
+    stall_max_time: 1.0
+    stall_min_vel: 0.1
+    disable_torque_on_runstop: 0
+    enable_torque_after_runstop: 1
+    enable_runstop: 1
+ros:
+  joints:
+  - py_module_name: command_group
+    py_class_name: NyuGripperCommandGroup
+
+self_collision_mujoco:
+  k_brake_distance: {}
+  exclusions:
+    - ["ng_finger_left_link", "ng_finger_right_link"]
