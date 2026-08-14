@@ -17,13 +17,15 @@ Community-shared end-of-arm (EOA) tools for the Stretch 4 mobile manipulator fro
 1. Clone this repository onto your robot:
 
    ```bash
-   git clone https://github.com/hello-bharadwaj/stretch4_tool_share.git
+   cd ~/repos/
+   git clone https://github.com/hello-robot/stretch4_tool_share.git
    ```
 
-2. Copy the tool's folder into `~/stretch_user/user_tools/`:
+2. Link the tool's folder into `~/stretch_user/user_tools/`:
 
    ```bash
-   cp -r stretch4_tool_share/<tool_name> ~/stretch_user/user_tools/
+   mkdir -p ~/stretch_user/user_tools/
+   ln -s $HOME/repos/stretch4_tool_share/stretch4_tool_share/* ~/stretch_user/user_tools/
    ```
 
 3. Register the tool:
