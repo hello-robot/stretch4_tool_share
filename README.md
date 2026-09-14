@@ -10,7 +10,7 @@ Community-shared end-of-arm (EOA) tools for the Stretch 4 mobile manipulator fro
 
 | Image | Tool | Author | Description |
 | --- | --- | --- | --- |
-| <img src="assets/nyu_gripper.jpg" width="150"/> | [NYU Gripper](nyu_gripper/) | [NYU](https://nyu-gripper.pages.dev) | Tendon-driven parallel gripper for the DexWrist v4 — one Feetech servo winds a Kevlar tendon to close, spring-return opens |
+| <img src="assets/nyu_gripper.jpg" width="150"/> | [NYU Gripper](stretch4_tool_share/nyu_gripper/) | [NYU](https://nyu-gripper.pages.dev) | Tendon-driven parallel gripper for the DexWrist v4 — one Feetech servo winds a Kevlar tendon to close, spring-return opens |
 
 ## Installing a shared tool
 
