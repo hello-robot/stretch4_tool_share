@@ -25,7 +25,7 @@ Community-shared end-of-arm (EOA) tools for the Stretch 4 mobile manipulator fro
 
    ```bash
    mkdir -p ~/stretch_user/user_tools/
-   ln -s $HOME/repos/stretch4_tool_share/stretch4_tool_share/* ~/stretch_user/user_tools/
+   ln -sfn $HOME/repos/stretch4_tool_share/stretch4_tool_share/* ~/stretch_user/user_tools/
    ```
 
 3. Register the tool:
