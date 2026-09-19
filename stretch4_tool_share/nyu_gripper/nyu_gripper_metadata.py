@@ -7,6 +7,12 @@ from stretch4_body.utils.tool_metadata import ToolMetadata
 
 
 class NyuGripperMetadata(ToolMetadata):
+
+    @property
+    def tool_name(self) -> str:
+        return "nyu_gripper"
+
+
     @property
     def tool_joints(self) -> list[str]:
         return ['ng_finger_left_joint', 'ng_finger_right_joint']
