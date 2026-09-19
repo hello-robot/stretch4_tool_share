@@ -1,5 +1,5 @@
 <robot name="nyu_gripper">
-  
+
   <link name="ng_body_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />

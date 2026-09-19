@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
+import math
 import time
 
 from stretch4_body.core.feetech.feetech_SM_hello import FeetechSMHello
 import stretch4_body.core.hello_utils as hu
-from stretch4_body.subsystem.end_of_arm.gripper_conversion import get_angle_from_chord_length_and_radius
+
+
+def angle_from_chord_length_and_radius(radius_m, chord_m):
+    """Angle (radians) subtended by a chord of length chord_m on a circle of radius radius_m."""
+    return 2.0 * math.asin(chord_m / (2.0 * radius_m))
 
 
 class NyuGripper(FeetechSMHello):
@@ -186,8 +191,8 @@ class NyuGripper(FeetechSMHello):
         ac = gc['aperture_closed_m']
         length = gc['finger_length_m']
         aperture_m = ac + (ao - ac) * pct / 100.0
-        finger_rad = get_angle_from_chord_length_and_radius(length, aperture_m) / 2.0
-        finger_rad_open = get_angle_from_chord_length_and_radius(length, ao) / 2.0
+        finger_rad = angle_from_chord_length_and_radius(length, aperture_m) / 2.0
+        finger_rad_open = angle_from_chord_length_and_radius(length, ao) / 2.0
         range_rad = hu.deg_to_rad(self.params['range_deg'][1])
         finger_vel = self.status.get('vel', 0.0) * finger_rad_open / range_rad
         return {'aperture_m': aperture_m,
